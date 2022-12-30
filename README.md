@@ -6,7 +6,7 @@ This software is designed to track vehicle and the location they visited.
 ## Installation Guide
 
 ### Requirements
-1. [NodeJS](https://nodejs.org/)
+1. [NodeJS](https://nodejs.org/) >=19.2.0
 2. [yarn](https://classic.yarnpkg.com)
 3. [MySQL](https://www.mysql.com)
 
