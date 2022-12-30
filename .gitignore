@@ -3,6 +3,5 @@ node_modules
 .env
 yarn-error.log
 uploads/
-prisma
 .env.test
 src/schema/zod
