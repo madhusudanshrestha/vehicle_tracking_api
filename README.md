@@ -1,6 +1,6 @@
 # VEHICLE TRACKING
 ## Overview
-This software is designed to track vehicle and the location they visited.
+This software is designed to track vehicles and the location they visited.
 
 
 ## Installation Guide
@@ -13,10 +13,11 @@ This software is designed to track vehicle and the location they visited.
 ### How to run 
 
 ```
-git clone https://github.com/madhusudanshrestha/Vehicle-Tracking-API.git
-cd Vehicle-Tracking-API
+git clone https://github.com/madhusudanshrestha/vehicle_tracking_api.git
+cd vehicle_tracking_api
 cp .env.example .env
 cp .env.test.example .env.test
+yarn
 
 ```
 Change the DATABASE_URL in the .env file as mentioned in https://pris.ly/d/prisma-schema#accessing-environment-variables-from-the-schema
@@ -24,9 +25,9 @@ Change the DATABASE_URL in the .env file as mentioned in https://pris.ly/d/prism
 Migrate and seed the database with Admin user
 ```
 npx prisma migrate dev --name init
-npx prisma seed db
+npx prisma db seed
 ```
-Your admin email and password will be displayed in console. ADMIN_EMAIL email and ADMIN_PASSWORD can also be changed in the .env file. If ADMIN_PASSWORD is empty. It'll generate a random password.
+Your admin email and password will be displayed in the console. ADMIN_EMAIL email and ADMIN_PASSWORD can also be changed in the .env file. If ADMIN_PASSWORD is empty. It'll generate a random password.
 ```
 _______________________________________
 Your email:  admin@example.com
