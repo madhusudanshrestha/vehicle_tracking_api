@@ -1,0 +1,1002 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Vehicle Tracker",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3001/api/v1"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "User"
+    },
+    {
+      "name": "Vehicle"
+    }
+  ],
+  "paths": {
+    "/user/create": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Create user",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "example": "Doge"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "example": "Kabosu"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "doge_kobashu@example.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "p@ssw0rd"
+                  },
+                  "profilePicture": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "380"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"17c-x66fQMzmlupRqv0btUyNn4qCewc\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Wed, 28 Dec 2022 16:30:23 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "343427c6-7fc5-4c91-8f33-98c5dcb6721e",
+                    "firstName": "Doge",
+                    "lastName": "Kabosu",
+                    "email": "doge_kobashu@example.com",
+                    "profilePicture": "uploads/1672245022386_doge.jpg",
+                    "createdAt": "2022-12-28T16:30:22.387Z",
+                    "updatedAt": "2022-12-28T16:30:23.033Z",
+                    "isAdmin": false
+                  },
+                  "message": "successful",
+                  "code": 201
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "132"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"84-M3h2wLaCPY/MLdyx+BG03pK/i6U\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Wed, 28 Dec 2022 16:31:46 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "code": 500,
+                  "message": [
+                    {
+                      "code": "invalid_type",
+                      "expected": "string",
+                      "received": "undefined",
+                      "path": [
+                        "password"
+                      ],
+                      "message": "Required"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Admin Login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "admin@example.com",
+                  "password": "p@ssw0rd123"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "270"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"10e-qUxBWgf+nmu08YWdJtkElkFbEKA\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Wed, 28 Dec 2022 17:13:03 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwY2M4M2QxNS02NTMzLTQ5YzUtOWY1MS0yZTUwYWM2Nzk3YTgiLCJpYXQiOjE2NzIyNDc1ODMzNzQsImV4cCI6MTY3MjI0NzU4MzM3N30.scXKPLYkX9pSqjwKWkN2QawZy9cj4efsaRLFO-aeBPE",
+                    "expiresIn": "3600"
+                  },
+                  "message": "successful",
+                  "code": 200
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/me": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "User info",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "346"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"15a-4vCc9uny7DIeDQIDnuIioDc7/yI\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Thu, 29 Dec 2022 19:23:14 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "efb2279a-8e4b-4d89-b909-493054cb52e5",
+                    "firstName": "Doge",
+                    "lastName": "Kabosu",
+                    "email": "doge_kobashu@example.com",
+                    "profilePicture": "uploads/1672341780657_doge.jpg",
+                    "createdAt": "2022-12-29T19:23:00.658Z",
+                    "updatedAt": "2022-12-29T19:23:01.159Z",
+                    "isAdmin": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vehicle/register": {
+      "post": {
+        "tags": [
+          "Vehicle"
+        ],
+        "summary": "Register vehicle",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "vehicleNumber": "1FTYR10U15PB12082",
+                  "gpsDeviceId": "33093f02-2917-42bf-88a9-49b85d8b268f"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "269"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"10d-DfXjNpRnx/4HsU28LRqMzL7dTks\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Wed, 28 Dec 2022 16:58:20 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "77715803-22a8-4845-9118-2c3c17dbf71e",
+                    "vehicleNumber": "1FTYR10U15PB12081",
+                    "gpsDeviceId": "33093f02-2927-42bf-88a9-49b85d8b268f",
+                    "userId": "67c66389-f02f-4d87-9cb1-702615305503",
+                    "createdAt": "2022-12-28T17:53:21.588Z",
+                    "updatedAt": "2022-12-28T17:53:21.588Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "51"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"33-8C7Q6nUyZM8ZrPDhiuY5EocR56o\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Wed, 28 Dec 2022 16:57:58 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "code": 400,
+                  "message": "Vehicle already registered"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vehicle/": {
+      "get": {
+        "tags": [
+          "Vehicle"
+        ],
+        "summary": "Get vehicles",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "756"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"2f4-ufYA1RetceAvFMt/RqwPwsmmTmg\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Wed, 28 Dec 2022 17:13:30 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "example-0": {
+                    "summary": "Get vehicles success",
+                    "value": {
+                      "data": [
+                        {
+                          "id": "77715803-22a8-4845-9118-2c3c17dbf71e",
+                          "vehicleNumber": "1FTYR10U15PB12081",
+                          "gpsDeviceId": "33093f02-2927-42bf-88a9-49b85d8b268f",
+                          "userId": "67c66389-f02f-4d87-9cb1-702615305503",
+                          "createdAt": "2022-12-28T17:53:21.588Z",
+                          "updatedAt": "2022-12-28T17:53:21.588Z"
+                        },
+                        {
+                          "id": "a602031f-cf31-4729-9ce6-9fa8447f9c1a",
+                          "vehicleNumber": "1FTYR10U15PB12082",
+                          "gpsDeviceId": "33093f02-2917-42bf-88a9-49b85d8b268f",
+                          "userId": "c03fae96-570f-43b4-a78e-043d9488455e",
+                          "createdAt": "2022-12-28T17:56:03.194Z",
+                          "updatedAt": "2022-12-28T17:56:03.194Z"
+                        }
+                      ],
+                      "pagination": {
+                        "page": 0,
+                        "perPage": 10,
+                        "totalPage": 0
+                      }
+                    }
+                  },
+                  "example-1": {
+                    "summary": "Get vehicles empty",
+                    "value": {
+                      "data": []
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vehicle/location/update": {
+      "post": {
+        "tags": [
+          "Vehicle"
+        ],
+        "summary": "Update vehicle location",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "latitude": "15.8700",
+                  "longitude": "100.9925",
+                  "vehicleId": "77715803-22a8-4845-9118-2c3c17dbf71e",
+                  "gpsDeviceId": "33093f02-2927-42bf-88a9-49b85d8b268f"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "264"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"108-963t3eEOCTTOf8Pg/UZMuVvlfCE\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Wed, 28 Dec 2022 17:19:27 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "c9d0a18d-0aaf-4ea4-89b4-8998901eba35",
+                    "latitude": "15.87",
+                    "longitude": "100.9925",
+                    "placeId": null,
+                    "formattedAddress": null,
+                    "vehicleId": "c1ed33f7-7cee-4e46-9952-23e798e5aa25",
+                    "createdAt": "2022-12-28T17:19:27.105Z",
+                    "updatedAt": "2022-12-28T17:19:27.108Z"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "42"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"2a-I6PTbndkfPgSBC/5qjr+jo7b+44\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Wed, 28 Dec 2022 18:08:18 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "code": 404,
+                  "message": "Vehicle not found"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "133"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"85-rsZW5GfPX7KtaUQXe8J1N0u0IGY\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Wed, 28 Dec 2022 17:19:39 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "code": 500,
+                  "message": [
+                    {
+                      "code": "invalid_type",
+                      "expected": "string",
+                      "received": "undefined",
+                      "path": [
+                        "longitude"
+                      ],
+                      "message": "Required"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vehicle/:vehicleId/location": {
+      "get": {
+        "tags": [
+          "Vehicle"
+        ],
+        "summary": "Get Vehicle Location",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "If empty returns all vehicle location ",
+            "example": "2022-12-28T17:15:27.105Z"
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "2022-12-28T18:30:27.105Z"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "581"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"245-C7S2UVj0nK6YTLUa7gH26dEkivM\""
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Wed, 28 Dec 2022 17:40:32 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "example-0": {
+                    "summary": "Get Vehicle Location",
+                    "value": {
+                      "data": [
+                        {
+                          "id": "7f1fdb38-3b11-4fb6-a62d-2e5b194dfde7",
+                          "latitude": "15.87",
+                          "longitude": "100.9925",
+                          "placeId": null,
+                          "formattedAddress": null,
+                          "vehicleId": "77715803-22a8-4845-9118-2c3c17dbf71e",
+                          "gpsDeviceId": "33093f02-2927-42bf-88a9-49b85d8b268f",
+                          "createdAt": "2022-12-28T18:08:12.031Z",
+                          "updatedAt": "2022-12-28T18:08:12.033Z"
+                        },
+                        {
+                          "id": "963f7da5-021e-4ada-a3d8-839155876366",
+                          "latitude": "15.87",
+                          "longitude": "100.9925",
+                          "placeId": null,
+                          "formattedAddress": null,
+                          "vehicleId": "77715803-22a8-4845-9118-2c3c17dbf71e",
+                          "gpsDeviceId": "33093f02-2927-42bf-88a9-49b85d8b268f",
+                          "createdAt": "2022-12-28T18:01:47.330Z",
+                          "updatedAt": "2022-12-28T18:01:47.331Z"
+                        },
+                        {
+                          "id": "e5cce70f-abb3-4ff7-91d3-2720bfd2bb4e",
+                          "latitude": "15.87",
+                          "longitude": "100.9925",
+                          "placeId": null,
+                          "formattedAddress": null,
+                          "vehicleId": "77715803-22a8-4845-9118-2c3c17dbf71e",
+                          "gpsDeviceId": "33093f02-2927-42bf-88a9-49b85d8b268f",
+                          "createdAt": "2022-12-28T17:58:10.470Z",
+                          "updatedAt": "2022-12-28T17:58:10.472Z"
+                        },
+                        {
+                          "id": "454808b5-276e-43f1-ab53-a1ef709a8e02",
+                          "latitude": "14.0963557",
+                          "longitude": "100.5017341",
+                          "placeId": null,
+                          "formattedAddress": null,
+                          "vehicleId": "77715803-22a8-4845-9118-2c3c17dbf71e",
+                          "gpsDeviceId": "33093f02-2927-42bf-88a9-49b85d8b268f",
+                          "createdAt": "2022-12-28T17:57:40.607Z",
+                          "updatedAt": "2022-12-28T17:57:40.610Z"
+                        }
+                      ],
+                      "pagination": {
+                        "page": 0,
+                        "perPage": 10,
+                        "totalPage": 0
+                      }
+                    }
+                  },
+                  "example-1": {
+                    "summary": "Get Vehicle Location empty",
+                    "value": {
+                      "data": [],
+                      "pagination": {
+                        "page": 0,
+                        "perPage": 10,
+                        "totalPage": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

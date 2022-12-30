@@ -1,0 +1,1256 @@
+{
+	"info": {
+		"_postman_id": "7e9ef3cd-97ff-46a1-ba90-130f8586f6f9",
+		"name": "Vehicle Tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstName",
+									"value": "Doge",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Kabosu",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "doge_kobashu@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "p@ssw0rd",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/asus/Desktop/doge.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}{{v1}}user/create",
+							"host": [
+								"{{local}}{{v1}}user"
+							],
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User create success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "firstName",
+											"value": "Doge",
+											"type": "text"
+										},
+										{
+											"key": "lastName",
+											"value": "Kabosu",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "doge_kobashu@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "p@ssw0rd",
+											"type": "text"
+										},
+										{
+											"key": "profilePicture",
+											"type": "file",
+											"src": "/C:/Users/asus/Desktop/doge.jpg"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}{{v1}}user/create",
+									"host": [
+										"{{local}}{{v1}}user"
+									],
+									"path": [
+										"create"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "380"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"17c-x66fQMzmlupRqv0btUyNn4qCewc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Dec 2022 16:30:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"343427c6-7fc5-4c91-8f33-98c5dcb6721e\",\n        \"firstName\": \"Doge\",\n        \"lastName\": \"Kabosu\",\n        \"email\": \"doge_kobashu@example.com\",\n        \"profilePicture\": \"uploads/1672245022386_doge.jpg\",\n        \"createdAt\": \"2022-12-28T16:30:22.387Z\",\n        \"updatedAt\": \"2022-12-28T16:30:23.033Z\",\n        \"isAdmin\": false\n    },\n    \"message\": \"successful\",\n    \"code\": 201\n}"
+						},
+						{
+							"name": "If require field not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "firstName",
+											"value": "Doge",
+											"type": "text"
+										},
+										{
+											"key": "lastName",
+											"value": "Kabosu",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "doge_kobashu@example.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "p@ssw0rd",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "profilePicture",
+											"type": "file",
+											"src": "/C:/Users/asus/Desktop/doge.jpg"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}{{v1}}user/create",
+									"host": [
+										"{{local}}{{v1}}user"
+									],
+									"path": [
+										"create"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "132"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"84-M3h2wLaCPY/MLdyx+BG03pK/i6U\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Dec 2022 16:31:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 500,\n    \"message\": [\n        {\n            \"code\": \"invalid_type\",\n            \"expected\": \"string\",\n            \"received\": \"undefined\",\n            \"path\": [\n                \"password\"\n            ],\n            \"message\": \"Required\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"doge_kobashu@example.com\",\r\n    \"password\": \"p@ssw0rd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}{{v1}}user/login",
+							"host": [
+								"{{local}}{{v1}}user"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login unsuccessful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"doge_kobashu@example.com\",\r\n    \"password\": \"p@ssword\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}{{v1}}user/login",
+									"host": [
+										"{{local}}{{v1}}user"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32-5YFbvzKumTaUVU9EW/BG6dZ1naI\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Dec 2022 16:34:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 409,\n    \"message\": \"Invalid Username/Password\"\n}"
+						},
+						{
+							"name": "Login successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"doge_kobashu@example.com\",\r\n    \"password\": \"p@ssw0rd\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}{{v1}}user/login",
+									"host": [
+										"{{local}}{{v1}}user"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "270"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10e-BaVS2sz/dRft8vxpq8BYakzHVTY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Dec 2022 16:34:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzNDM0MjdjNi03ZmM1LTRjOTEtOGYzMy05OGM1ZGNiNjcyMWUiLCJpYXQiOjE2NzIyNDUyNzk4NjksImV4cCI6MTY3MjI0NTI3OTg3Mn0.PzFFnbkopne9rMASAtPf0aR71RbvqpFjxoU-eJthRLc\",\n        \"expiresIn\": \"3600\"\n    },\n    \"message\": \"successful\",\n    \"code\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "Admin Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"p@ssw0rd123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}{{v1}}user/login",
+							"host": [
+								"{{local}}{{v1}}user"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Admin Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"p@ssw0rd123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}{{v1}}user/login",
+									"host": [
+										"{{local}}{{v1}}user"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "270"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10e-qUxBWgf+nmu08YWdJtkElkFbEKA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Dec 2022 17:13:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIwY2M4M2QxNS02NTMzLTQ5YzUtOWY1MS0yZTUwYWM2Nzk3YTgiLCJpYXQiOjE2NzIyNDc1ODMzNzQsImV4cCI6MTY3MjI0NzU4MzM3N30.scXKPLYkX9pSqjwKWkN2QawZy9cj4efsaRLFO-aeBPE\",\n        \"expiresIn\": \"3600\"\n    },\n    \"message\": \"successful\",\n    \"code\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "User info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlZmIyMjc5YS04ZTRiLTRkODktYjkwOS00OTMwNTRjYjUyZTUiLCJpYXQiOjE2NzIzNDE3ODY5NDgsImV4cCI6MTY3MjM0MTc4Njk1MX0.GWBnBzsxzPFbNvAe_DrFDaHNzkfFAxpe12TUVAk-G7E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}{{v1}}user/me",
+							"host": [
+								"{{local}}{{v1}}user"
+							],
+							"path": [
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User info",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}{{v1}}user/me",
+									"host": [
+										"{{local}}{{v1}}user"
+									],
+									"path": [
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "346"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"15a-4vCc9uny7DIeDQIDnuIioDc7/yI\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 29 Dec 2022 19:23:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"efb2279a-8e4b-4d89-b909-493054cb52e5\",\n        \"firstName\": \"Doge\",\n        \"lastName\": \"Kabosu\",\n        \"email\": \"doge_kobashu@example.com\",\n        \"profilePicture\": \"uploads/1672341780657_doge.jpg\",\n        \"createdAt\": \"2022-12-29T19:23:00.658Z\",\n        \"updatedAt\": \"2022-12-29T19:23:01.159Z\",\n        \"isAdmin\": false\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Vehicle",
+			"item": [
+				{
+					"name": "Register vehicle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vehicleNumber\": \"1FTYR10U15PB12082\",\r\n    \"gpsDeviceId\": \"33093f02-2917-42bf-88a9-49b85d8b268f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}{{v1}}vehicle/register",
+							"host": [
+								"{{local}}{{v1}}vehicle"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "already registered",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vehicleNumber\": \"1FTYR10U15PB12080\",\r\n    \"gpsDeviceId\": \"33093f02-2967-42bf-88a9-49b85d8b268f\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}{{v1}}vehicle/register",
+									"host": [
+										"{{local}}{{v1}}vehicle"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-8C7Q6nUyZM8ZrPDhiuY5EocR56o\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Dec 2022 16:57:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Vehicle already registered\"\n}"
+						},
+						{
+							"name": "Register vehicle success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vehicleNumber\": \"1FTYR10U15PB12081\",\r\n    \"gpsDeviceId\": \"33093f02-2967-42bf-88a9-49b85d8b268f\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}{{v1}}vehicle/register",
+									"host": [
+										"{{local}}{{v1}}vehicle"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "269"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"10d-DfXjNpRnx/4HsU28LRqMzL7dTks\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Dec 2022 16:58:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"77715803-22a8-4845-9118-2c3c17dbf71e\",\n        \"vehicleNumber\": \"1FTYR10U15PB12081\",\n        \"gpsDeviceId\": \"33093f02-2927-42bf-88a9-49b85d8b268f\",\n        \"userId\": \"67c66389-f02f-4d87-9cb1-702615305503\",\n        \"createdAt\": \"2022-12-28T17:53:21.588Z\",\n        \"updatedAt\": \"2022-12-28T17:53:21.588Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get vehicles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjMDNmYWU5Ni01NzBmLTQzYjQtYTc4ZS0wNDNkOTQ4ODQ1NWUiLCJpYXQiOjE2NzIyNTAwNTcwMjcsImV4cCI6MTY3MjI1MDA1NzAzMH0.uFfRaEsx26Y_HhuhjETzwFPgq7es4hMqXPOG6dQ_J3M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}{{v1}}vehicle",
+							"host": [
+								"{{local}}{{v1}}vehicle"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get vehicles success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}{{v1}}vehicle",
+									"host": [
+										"{{local}}{{v1}}vehicle"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "756"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f4-ufYA1RetceAvFMt/RqwPwsmmTmg\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Dec 2022 17:13:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"77715803-22a8-4845-9118-2c3c17dbf71e\",\n            \"vehicleNumber\": \"1FTYR10U15PB12081\",\n            \"gpsDeviceId\": \"33093f02-2927-42bf-88a9-49b85d8b268f\",\n            \"userId\": \"67c66389-f02f-4d87-9cb1-702615305503\",\n            \"createdAt\": \"2022-12-28T17:53:21.588Z\",\n            \"updatedAt\": \"2022-12-28T17:53:21.588Z\"\n        },\n        {\n            \"id\": \"a602031f-cf31-4729-9ce6-9fa8447f9c1a\",\n            \"vehicleNumber\": \"1FTYR10U15PB12082\",\n            \"gpsDeviceId\": \"33093f02-2917-42bf-88a9-49b85d8b268f\",\n            \"userId\": \"c03fae96-570f-43b4-a78e-043d9488455e\",\n            \"createdAt\": \"2022-12-28T17:56:03.194Z\",\n            \"updatedAt\": \"2022-12-28T17:56:03.194Z\"\n        }\n    ],\n    \"pagination\": {\n        \"page\": 0,\n        \"perPage\": 10,\n        \"totalPage\": 0\n    }\n}"
+						},
+						{
+							"name": "Get vehicles empty",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}{{v1}}vehicle",
+									"host": [
+										"{{local}}{{v1}}vehicle"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "756"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2f4-ufYA1RetceAvFMt/RqwPwsmmTmg\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Dec 2022 17:13:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Update vehicle location",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"latitude\":\"15.8700\",\r\n    \"longitude\": \"100.9925\",\r\n    \"vehicleId\": \"77715803-22a8-4845-9118-2c3c17dbf71e\",\r\n    \"gpsDeviceId\": \"33093f02-2927-42bf-88a9-49b85d8b268f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}{{v1}}vehicle/location/update",
+							"host": [
+								"{{local}}{{v1}}vehicle"
+							],
+							"path": [
+								"location",
+								"update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update vehicle location success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"latitude\":\"15.8700\",\r\n    \"longitude\": \"100.9925\",\r\n    \"vehicleId\": \"c1ed33f7-7cee-4e46-9952-23e798e5aa25\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}{{v1}}vehicle/location/update",
+									"host": [
+										"{{local}}{{v1}}vehicle"
+									],
+									"path": [
+										"location",
+										"update"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "264"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"108-963t3eEOCTTOf8Pg/UZMuVvlfCE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Dec 2022 17:19:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"c9d0a18d-0aaf-4ea4-89b4-8998901eba35\",\n        \"latitude\": \"15.87\",\n        \"longitude\": \"100.9925\",\n        \"placeId\": null,\n        \"formattedAddress\": null,\n        \"vehicleId\": \"c1ed33f7-7cee-4e46-9952-23e798e5aa25\",\n        \"createdAt\": \"2022-12-28T17:19:27.105Z\",\n        \"updatedAt\": \"2022-12-28T17:19:27.108Z\"\n    }\n}"
+						},
+						{
+							"name": "if required field missing",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"latitude\":\"15.8700\",\r\n\r\n    \"vehicleId\": \"c1ed33f7-7cee-4e46-9952-23e798e5aa25\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}{{v1}}vehicle/location/update",
+									"host": [
+										"{{local}}{{v1}}vehicle"
+									],
+									"path": [
+										"location",
+										"update"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "133"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"85-rsZW5GfPX7KtaUQXe8J1N0u0IGY\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Dec 2022 17:19:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 500,\n    \"message\": [\n        {\n            \"code\": \"invalid_type\",\n            \"expected\": \"string\",\n            \"received\": \"undefined\",\n            \"path\": [\n                \"longitude\"\n            ],\n            \"message\": \"Required\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Vehicle not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"latitude\":\"15.8700\",\r\n    \"longitude\": \"100.9925\",\r\n    \"vehicleId\": \"77715803-22a8-4845-9118-2c3c17dbf71e\",\r\n    \"gpsDeviceId\": \"33093f02-2927-42bf-88a9-49b85d8b268f\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}{{v1}}vehicle/location/update",
+									"host": [
+										"{{local}}{{v1}}vehicle"
+									],
+									"path": [
+										"location",
+										"update"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2a-I6PTbndkfPgSBC/5qjr+jo7b+44\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Dec 2022 18:08:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"message\": \"Vehicle not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Vehicle Location",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjMDNmYWU5Ni01NzBmLTQzYjQtYTc4ZS0wNDNkOTQ4ODQ1NWUiLCJpYXQiOjE2NzIyNTAwNTcwMjcsImV4cCI6MTY3MjI1MDA1NzAzMH0.uFfRaEsx26Y_HhuhjETzwFPgq7es4hMqXPOG6dQ_J3M",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}{{v1}}vehicle/77715803-22a8-4845-9118-2c3c17dbf71e/location?from=2022-12-28T17:15:27.105Z&to=2022-12-28T18:30:27.105Z",
+							"host": [
+								"{{local}}{{v1}}vehicle"
+							],
+							"path": [
+								"77715803-22a8-4845-9118-2c3c17dbf71e",
+								"location"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "2022-12-28T17:15:27.105Z",
+									"description": "If empty returns all vehicle location "
+								},
+								{
+									"key": "to",
+									"value": "2022-12-28T18:30:27.105Z"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Vehicle Location",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}{{v1}}vehicle/77715803-22a8-4845-9118-2c3c17dbf71e/location?from=2022-12-28T17:15:27.105Z&to=2022-12-28T17:30:27.105Z",
+									"host": [
+										"{{local}}{{v1}}vehicle"
+									],
+									"path": [
+										"77715803-22a8-4845-9118-2c3c17dbf71e",
+										"location"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "2022-12-28T17:15:27.105Z"
+										},
+										{
+											"key": "to",
+											"value": "2022-12-28T17:30:27.105Z"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "581"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"245-C7S2UVj0nK6YTLUa7gH26dEkivM\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Dec 2022 17:40:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"7f1fdb38-3b11-4fb6-a62d-2e5b194dfde7\",\n            \"latitude\": \"15.87\",\n            \"longitude\": \"100.9925\",\n            \"placeId\": null,\n            \"formattedAddress\": null,\n            \"vehicleId\": \"77715803-22a8-4845-9118-2c3c17dbf71e\",\n            \"gpsDeviceId\": \"33093f02-2927-42bf-88a9-49b85d8b268f\",\n            \"createdAt\": \"2022-12-28T18:08:12.031Z\",\n            \"updatedAt\": \"2022-12-28T18:08:12.033Z\"\n        },\n        {\n            \"id\": \"963f7da5-021e-4ada-a3d8-839155876366\",\n            \"latitude\": \"15.87\",\n            \"longitude\": \"100.9925\",\n            \"placeId\": null,\n            \"formattedAddress\": null,\n            \"vehicleId\": \"77715803-22a8-4845-9118-2c3c17dbf71e\",\n            \"gpsDeviceId\": \"33093f02-2927-42bf-88a9-49b85d8b268f\",\n            \"createdAt\": \"2022-12-28T18:01:47.330Z\",\n            \"updatedAt\": \"2022-12-28T18:01:47.331Z\"\n        },\n        {\n            \"id\": \"e5cce70f-abb3-4ff7-91d3-2720bfd2bb4e\",\n            \"latitude\": \"15.87\",\n            \"longitude\": \"100.9925\",\n            \"placeId\": null,\n            \"formattedAddress\": null,\n            \"vehicleId\": \"77715803-22a8-4845-9118-2c3c17dbf71e\",\n            \"gpsDeviceId\": \"33093f02-2927-42bf-88a9-49b85d8b268f\",\n            \"createdAt\": \"2022-12-28T17:58:10.470Z\",\n            \"updatedAt\": \"2022-12-28T17:58:10.472Z\"\n        },\n        {\n            \"id\": \"454808b5-276e-43f1-ab53-a1ef709a8e02\",\n            \"latitude\": \"14.0963557\",\n            \"longitude\": \"100.5017341\",\n            \"placeId\": null,\n            \"formattedAddress\": null,\n            \"vehicleId\": \"77715803-22a8-4845-9118-2c3c17dbf71e\",\n            \"gpsDeviceId\": \"33093f02-2927-42bf-88a9-49b85d8b268f\",\n            \"createdAt\": \"2022-12-28T17:57:40.607Z\",\n            \"updatedAt\": \"2022-12-28T17:57:40.610Z\"\n        }\n    ],\n    \"pagination\": {\n        \"page\": 0,\n        \"perPage\": 10,\n        \"totalPage\": 0\n    }\n}"
+						},
+						{
+							"name": "Get Vehicle Location empty",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}{{v1}}vehicle/77715803-22a8-4845-9118-2c3c17dbf71e/location?from=2022-12-28T17:15:27.105Z&to=2022-12-28T17:30:27.105Z",
+									"host": [
+										"{{local}}{{v1}}vehicle"
+									],
+									"path": [
+										"77715803-22a8-4845-9118-2c3c17dbf71e",
+										"location"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "2022-12-28T17:15:27.105Z",
+											"description": "If empty returns all vehicle location "
+										},
+										{
+											"key": "to",
+											"value": "2022-12-28T17:30:27.105Z"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-Mmb8E1jicdby82ZF62dr9Q+Qs5g\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 28 Dec 2022 17:58:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"pagination\": {\n        \"page\": 0,\n        \"perPage\": 10,\n        \"totalPage\": 0\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2N2M2NjM4OS1mMDJmLTRkODctOWNiMS03MDI2MTUzMDU1MDMiLCJpYXQiOjE2NzIyNDk5ODYzOTcsImV4cCI6MTY3MjI0OTk4NjQwMH0.E3RhnhT4odTU5XqTorJik4CVd0_BRdYBa0GC-Js2NYk",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": "http://localhost:3001",
+			"type": "default"
+		},
+		{
+			"key": "v1",
+			"value": "/api/v1/",
+			"type": "default"
+		}
+	]
+}
