@@ -16,8 +16,7 @@ import {
 import expressAsyncHandler from 'express-async-handler'
 import { Context } from '../db'
 import { HttpException } from '../exception/http.exception'
-import { GetVehicleLocationModel } from '../schema'
-import dayjs from 'dayjs'
+import { GetVehicleLocationModel, GetVehicleLocationPageModel } from '../schema'
 
 /**
  *  Register a vehicle
@@ -28,6 +27,7 @@ export const registerHandler = (ctx: Context) =>
   expressAsyncHandler(
     async (req: Request<object, object, Vehicle>, res: Response) => {
       const { vehicleNumber } = req.body
+      req.body.userId = req.user.id
       if ((await getVehicleByNumber(ctx, vehicleNumber)) == null)
         res.status(201).send({ data: await createVehicle(ctx, req.body) })
       else throw new HttpException(400, 'Vehicle already registered')
@@ -54,26 +54,16 @@ export const updateHandler = (ctx: Context) =>
 export const getLocationHandler = (ctx: Context) =>
   expressAsyncHandler(async (req: Request, res: Response) => {
     const vehicleData: z.infer<typeof GetVehicleLocationModel> =
-      GetVehicleLocationModel.parse({
-        vehicleId: req.params.vehicleId,
-        from: req.query.from
-          ? dayjs(req.query.from as unknown as string).toDate()
-          : null,
-        to: req.query.to
-          ? dayjs(req.query.to as unknown as string).toDate()
-          : null,
-        page: (req.query.page as unknown as number) ?? 0,
-        perPage: (req.query.perPage as unknown as number) ?? 10
-      })
+      GetVehicleLocationModel.parse(req)
     res.status(200).send({
       data: await getVehicleLocation(ctx, vehicleData),
       pagination: {
-        page: vehicleData.page,
-        perPage: vehicleData.perPage,
+        page: vehicleData.query.page,
+        perPage: vehicleData.query.perPage,
         totalPage: parseInt(
           (
             ((await getVehicleLocationCount(ctx, vehicleData)) - 1) /
-            vehicleData.perPage
+            vehicleData.query.perPage
           ).toString()
         )
       }
@@ -97,8 +87,9 @@ export const updateLocationHandler = (ctx: Context) =>
 
 export const getHandler = (ctx: Context) =>
   expressAsyncHandler(async (req: Request, res: Response) => {
-    const page = (req.query.page as unknown as number) ?? 0
-    const perPage = (req.query.perPage as unknown as number) ?? 10
+    const vehiclePage: z.infer<typeof GetVehicleLocationPageModel> =
+      GetVehicleLocationPageModel.parse(req)
+    const { page, perPage } = vehiclePage.query
     res.status(200).send({
       data: await getAllVehicle(ctx, page, perPage),
       pagination: {

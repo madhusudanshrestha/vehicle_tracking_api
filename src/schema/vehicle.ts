@@ -7,8 +7,10 @@ import {
 } from './index'
 
 export const VehicleModel = z.object({
-  vehicleNumber: z.string().regex(RegExp('[(A-H|J-N|P|R-Z|0-9)]{17}')), //TODO Regex
-  gpsDeviceId: z.string()
+  body: z.object({
+    vehicleNumber: z.string().regex(RegExp('[(A-H|J-N|P|R-Z|0-9)]{17}')), //TODO Regex
+    gpsDeviceId: z.string()
+  })
 })
 
 export interface CompleteVehicle extends z.infer<typeof VehicleModel> {

@@ -44,8 +44,9 @@ export const getVehicleLocation = async (
   ctx: Context,
   vehicleData: z.infer<typeof GetVehicleLocationModel>
 ) => {
-  const { perPage, page, vehicleId, from, to } = vehicleData
-  if ((await getVehicleById(ctx, vehicleData.vehicleId)) == null)
+  const { perPage, page, from, to } = vehicleData.query
+  const { vehicleId } = vehicleData.params
+  if ((await getVehicleById(ctx, vehicleId)) == null)
     throw new HttpException(404, 'Vehicle not found')
   return await ctx.prisma.vehicleLocation.findMany({
     where: {
@@ -53,8 +54,8 @@ export const getVehicleLocation = async (
       createdAt:
         to && from
           ? {
-              gte: from.toISOString(),
-              lte: to.toISOString()
+              gte: from,
+              lte: to
             }
           : {}
     },
@@ -73,15 +74,16 @@ export const getVehicleLocationCount = async (
   ctx: Context,
   vehicleData: z.infer<typeof GetVehicleLocationModel>
 ) => {
-  const { to, from, vehicleId } = vehicleData
+  const { to, from } = vehicleData.query
+  const { vehicleId } = vehicleData.params
   return await ctx.prisma.vehicleLocation.count({
     where: {
       vehicleId: vehicleId,
       createdAt:
         to && from
           ? {
-              gte: from.toISOString(),
-              lte: to.toISOString()
+              gte: from,
+              lte: to
             }
           : {}
     }

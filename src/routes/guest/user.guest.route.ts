@@ -5,7 +5,7 @@ import {
 } from '../../controller/users.controller'
 import multipartMiddleware from '../../middleware/multer.middlerware'
 import verifySchemaMiddleware from '../../middleware/verifySchema.middleware'
-import { UserLoginModel, UserModel } from '../../schema'
+import { UserLoginBodyModel, UserModel } from '../../schema'
 import { Context } from '../../db'
 export default (ctx: Context) => {
   const userGuestRoute = express.Router()
@@ -18,7 +18,7 @@ export default (ctx: Context) => {
   )
   userGuestRoute.post(
     '/login',
-    verifySchemaMiddleware(UserLoginModel),
+    verifySchemaMiddleware(UserLoginBodyModel),
     loginUserHandler(ctx)
   )
   return userGuestRoute

@@ -1,19 +1,24 @@
 import * as z from 'zod'
 import { CompleteVehicle, RelatedVehicleModel } from './index'
 
+export const UserLoginBodyModel = z.object({
+  body: z.object({
+    email: z.string().email(),
+    password: z.string().min(6)
+  })
+})
+
 export const UserLoginModel = z.object({
   email: z.string().email(),
   password: z.string().min(6)
 })
 export const UserModel = z.object({
-  firstName: z.string(),
-  lastName: z.string().nullish(),
-  email: z.string().email(),
-  password: z.string().min(6)
-})
-
-export const UserPasswordModel = z.object({
-  password: z.string().regex(RegExp('^$2[ayb]$.{56}$'))
+  body: z.object({
+    firstName: z.string(),
+    lastName: z.string().nullish(),
+    email: z.string().email(),
+    password: z.string().min(6)
+  })
 })
 
 export interface CompleteUser extends z.infer<typeof UserModel> {

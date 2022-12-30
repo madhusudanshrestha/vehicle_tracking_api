@@ -1,6 +1,5 @@
 import express from 'express'
 import authenticationMiddleWare from '../../middleware/auth.middleware'
-import verifySchemaMiddleware from '../../middleware/verifySchema.middleware'
 import {
   getHandler,
   getLocationHandler,
@@ -9,7 +8,13 @@ import {
 } from '../../controller/vehicle.controller'
 import checkUserIsAdminMiddleware from '../../middleware/checkUserIsAdmin.middleware'
 import { Context } from '../../db'
-import { VehicleModel, VehicleLocationModel } from '../../schema'
+import {
+  VehicleModel,
+  VehicleLocationModel,
+  GetVehicleLocationModel,
+  GetVehicleLocationPageModel
+} from '../../schema'
+import verifySchemaMiddleware from '../../middleware/verifySchema.middleware'
 export default (ctx: Context) => {
   const vehicleAuthRoute = express.Router()
   //Authentication middleware to check token
@@ -28,9 +33,15 @@ export default (ctx: Context) => {
   )
 
   //Admin only routes
-  vehicleAuthRoute.get('/', checkUserIsAdminMiddleware, getHandler(ctx))
+  vehicleAuthRoute.get(
+    '/',
+    verifySchemaMiddleware(GetVehicleLocationPageModel),
+    checkUserIsAdminMiddleware,
+    getHandler(ctx)
+  )
   vehicleAuthRoute.get(
     '/:vehicleId/location',
+    verifySchemaMiddleware(GetVehicleLocationModel),
     checkUserIsAdminMiddleware,
     getLocationHandler(ctx)
   )

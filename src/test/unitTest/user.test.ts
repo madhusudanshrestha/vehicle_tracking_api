@@ -19,6 +19,7 @@ describe('User', () => {
     it('should create a new user', async () => {
       const { firstName, lastName, email, password } = clientUser
       mockCtx.prisma.user.create.mockResolvedValue(clientUser)
+      mockCtx.prisma.user.findFirst.mockResolvedValue(null)
       const data = await postApiCallTest(ctx, baseUrl + '/create', {
         firstName,
         lastName,

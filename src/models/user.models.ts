@@ -25,7 +25,7 @@ export const findUserById = async (
   const findUser: User | null = await ctx.prisma.user.findUnique({
     where: { id: userId }
   })
-  if (!findUser) throw new HttpException(403, "User doesn't exist")
+  if (!findUser) throw new HttpException(404, "User doesn't exist")
   return findUser
 }
 /**
@@ -40,7 +40,7 @@ export const findUserByEmail = async (
   const findUser: User | null = await ctx.prisma.user.findFirst({
     where: { email: email }
   })
-  if (!findUser) throw new HttpException(403, "User doesn't exist")
+  if (!findUser) throw new HttpException(404, "User doesn't exist")
 
   return findUser
 }
@@ -54,6 +54,13 @@ export const userCreate = async (
   userData: User
 ): Promise<User> => {
   const { password } = userData
+  if (
+    await ctx.prisma.user.findFirst({
+      where: { email: userData.email }
+    })
+  ) {
+    throw new HttpException(409, 'Email already taken')
+  }
   return await ctx.prisma.user.create({
     data: {
       ...userData,
