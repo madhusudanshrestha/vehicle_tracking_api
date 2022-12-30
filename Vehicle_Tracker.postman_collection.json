@@ -853,7 +853,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"latitude\":\"15.8700\",\r\n    \"longitude\": \"100.9925\",\r\n    \"vehicleId\": \"c1ed33f7-7cee-4e46-9952-23e798e5aa25\"\r\n}",
+									"raw": "{\r\n \"gpsDeviceId\": \"33093f02-2917-42bf-88a9-49b85d8b268f\",\r\n    \"latitude\":\"15.8700\",\r\n    \"longitude\": \"100.9925\",\r\n    \"vehicleId\": \"c1ed33f7-7cee-4e46-9952-23e798e5aa25\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
