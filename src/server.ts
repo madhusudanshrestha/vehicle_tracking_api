@@ -13,8 +13,8 @@ export default (ctx: Context) => {
     optionsSuccessStatus: 204
   }
   const limiter = rateLimit({
-    windowMs: 1000, // 15 minutes
-    max: 11, // Limit each IP to 11 requests per `window` (here, per 1 second)
+    windowMs: 10 * 1000, //
+    max: 10000, // Limit each IP to 1 requests per `window` (here, per 10 second)
     standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
     legacyHeaders: false // Disable the `X-RateLimit-*` headers
   })
